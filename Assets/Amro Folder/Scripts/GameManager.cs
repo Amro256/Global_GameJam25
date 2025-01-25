@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     //Make this an instance so it can be accessed by other scripts
     public static GameManager insance;
     [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject gameWinPanel;
 
     void Awake() 
     {
@@ -45,11 +46,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    //Add two new methods - Win & Lose State
 
+    //Add two new methods - Win & Lose State
     public void showWinScreen()
     {
-        //Enable panel here
+        //Enable win screen here - Possibly change it to a different scene in the end
+        gameWinPanel.SetActive(true);
     }
 
     public void showGameOverScreen()

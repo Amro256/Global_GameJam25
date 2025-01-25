@@ -109,4 +109,15 @@ public class ToasterMovement : MonoBehaviour
     {
         toasterRb.AddForce(Vector3.down * GravityForce * Time.deltaTime);
     }
+
+    //Check if the player collides with the ground, if so activate the game over panel from the game manager
+    
+     void OnCollisionEnter(Collision collision) 
+    {   
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            //Call the game over screen here
+            GameManager.insance.showGameOverScreen();
+        }
+    }
 }

@@ -1176,9 +1176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a449b5c9c9722e64ca0c591a37384fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: 500
+  minLaunchForce: 50
+  maxLaunchForce: 5000
+  maxHoldDownTime: 2
   GravityForce: 9.81
-  maxButtonHoldDown: 3
   dragIncreaseValue: 0.1
   maxDrag: 3
 --- !u!1 &1031896483
@@ -2252,7 +2253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2090789539
 MonoBehaviour:
   m_ObjectHideFlags: 0

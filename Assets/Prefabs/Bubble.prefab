@@ -119,8 +119,6 @@ GameObject:
   - component: {fileID: 7467190371483936202}
   - component: {fileID: 2238644687402478880}
   - component: {fileID: 1972919685533050003}
-  - component: {fileID: 6272737068618289997}
-  - component: {fileID: 4240296798716494476}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: bubble
@@ -237,36 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   h1: {fileID: 3848407213308127318}
   bounceForce: 1000
-  bubble: {fileID: 3984816216549276102}
---- !u!114 &6272737068618289997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984816216549276102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2a01ae1cf16c44c805a5d76f09f44e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  h2: {fileID: 4821693906118012542}
-  bounceForce: 500
-  bubble: {fileID: 3984816216549276102}
---- !u!114 &4240296798716494476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3984816216549276102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dad3dd4e6e96d24083a7a0b249dd45a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  h3: {fileID: 6584286595016414158}
-  bounceForce: 500
   bubble: {fileID: 3984816216549276102}
 --- !u!1 &6044901826713767525
 GameObject:

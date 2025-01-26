@@ -6,6 +6,7 @@ TagManager:
   tags:
   - bubble
   - Ground
+  - Bath
   layers:
   - Default
   - TransparentFX

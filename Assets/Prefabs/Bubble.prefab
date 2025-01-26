@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   h1: {fileID: 3848407213308127318}
+  bounceForce: 1000
   bubble: {fileID: 3984816216549276102}
 --- !u!114 &6272737068618289997
 MonoBehaviour:
@@ -250,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   h2: {fileID: 4821693906118012542}
+  bounceForce: 500
   bubble: {fileID: 3984816216549276102}
 --- !u!114 &4240296798716494476
 MonoBehaviour:
@@ -264,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   h3: {fileID: 6584286595016414158}
+  bounceForce: 500
   bubble: {fileID: 3984816216549276102}
 --- !u!1 &6044901826713767525
 GameObject:

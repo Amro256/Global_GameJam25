@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ToasterMovement : MonoBehaviour
 {
     //Variables
-    private Rigidbody toasterRb; //Reference to the Rigidbody
+    public Rigidbody toasterRb; //Reference to the Rigidbody
     private float maxForce = 500f;
     private float HoldDownStartTime; // Private variable that will track how long the left mouse button is being held down
     private bool isLaunched = false;// Bool to check if the toaster has been launched

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BubbleBounceLeft : MonoBehaviour
+public class BubbleBounceRight : MonoBehaviour
 {
-    ToasterBounceProto toaster;
-    public SphereCollider h2;
+    ToasterMovement toaster;
+    public SphereCollider h3;
     SphereCollider toasterCollider;
+    [SerializeField] float bounceForce;
 
     [SerializeField] GameObject bubble;
 
@@ -14,7 +15,7 @@ public class BubbleBounceLeft : MonoBehaviour
 
     private void Start()
     {
-        toaster = FindObjectOfType<ToasterBounceProto>();
+        toaster = FindObjectOfType<ToasterMovement>();
         //toasterCollider = toaster.GetComponent<SphereCollider>();
 
     }
@@ -26,13 +27,9 @@ public class BubbleBounceLeft : MonoBehaviour
     }
     private void BubbleLaunchUp()
     {
-        toaster.toasterRb.AddForce(Vector3.left * (toaster.launchForce - 100f));
+        toaster.toasterRb.AddForce(Vector3.right * bounceForce);
+        Debug.Log("Toaster has been launched!");
 
-        if (toaster.toasterRb.velocity.x == 0)
-        {
-            toaster.toasterRb.velocity = Vector3.zero;
-            toaster.toasterRb.drag = 0;
-        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -43,6 +40,8 @@ public class BubbleBounceLeft : MonoBehaviour
             Destroy(bubble);
         }
     }
-
-
 }
+
+
+
+

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Amro Folder/Scenes/MainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 75ec7d17a863cd04c9c4a6473f1e3ed9
   - enabled: 1
     path: Assets/Scenes/ProtoScene.unity

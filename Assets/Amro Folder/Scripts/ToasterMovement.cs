@@ -11,6 +11,7 @@ public class ToasterMovement : MonoBehaviour
     private float maxForce = 500f;
     private float HoldDownStartTime; // Private variable that will track how long the left mouse button is being held down
     private bool isLaunched = false;// Bool to check if the toaster has been launched
+    private Vector3 hitDirection; //Store direction
 
     [Header("Toaster Properties")]
     [SerializeField] float minLaunchForce = 100f;
@@ -48,7 +49,11 @@ public class ToasterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleForceInput(); //Handles the force input from the mouse left click
+        if(!isLaunched)
+        {
+            HandleForceInput(); //Handles the force input from the mouse left click
+        }
+        
     }
 
     void FixedUpdate() 

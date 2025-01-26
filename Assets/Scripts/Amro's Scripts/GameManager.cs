@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
     //Method for starting and quiting the game
     public void StartGame()
     {
-        SceneManager.LoadScene("ProtoScene");
+        SceneManager.LoadScene("SAMProto");
+        Time.timeScale = 1;
     }
 
     public void QuitGame()

@@ -11,12 +11,16 @@ public class BubbleBounce : MonoBehaviour
 
     [SerializeField] GameObject bubble;
 
+    public Audioclip[] bubbleSound;
+
     // Start is called before the first frame update
 
     private void Start()
     {
         toaster = FindObjectOfType<ToasterMovement>();
         //toasterCollider = toaster.GetComponent<SphereCollider>();
+        GetComponent<AudioSource>().playOnAwake = false;
+        //GetComponent<AudioSource>().clip = bubbleSound;
 
     }
   
@@ -39,6 +43,11 @@ public class BubbleBounce : MonoBehaviour
             BubbleLaunchUp();
             Debug.Log("sigma");
             Destroy(bubble);
+
+            //audio
+            int randomIndex = Random.Range(0, bubbleSounds.Length);
+            GetComponent<AudioSource>().clip = bubbleSounds[randomIndex];
+            GetComponent<AudioSource>().Play();
         }
     }
 }

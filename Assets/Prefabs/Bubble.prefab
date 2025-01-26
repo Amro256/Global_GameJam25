@@ -236,6 +236,9 @@ MonoBehaviour:
   h1: {fileID: 3848407213308127318}
   bounceForce: 1000
   bubble: {fileID: 3984816216549276102}
+  bubbleSound:
+  - {fileID: 8300000, guid: 0c50e99c016b1464284cf534f5dbe81e, type: 3}
+  - {fileID: 8300000, guid: e803a10718e1169458340e2520b26a87, type: 3}
 --- !u!1 &6044901826713767525
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,9 +7,11 @@ public class BubbleBounce : MonoBehaviour
     ToasterMovement toaster;
     public SphereCollider h1;
     SphereCollider toasterCollider;
-    [SerializeField] float bounceForce; 
+    [SerializeField] float bounceForce;
 
     [SerializeField] GameObject bubble;
+
+    public AudioClip[] bubbleSound;
 
     // Start is called before the first frame update
 
@@ -17,13 +19,15 @@ public class BubbleBounce : MonoBehaviour
     {
         toaster = FindObjectOfType<ToasterMovement>();
         //toasterCollider = toaster.GetComponent<SphereCollider>();
+        GetComponent<AudioSource>().playOnAwake = false;
+        //GetComponent<AudioSource>().clip = bubbleSound;
 
     }
-  
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void BubbleLaunchUp()
     {
@@ -39,6 +43,11 @@ public class BubbleBounce : MonoBehaviour
             BubbleLaunchUp();
             Debug.Log("sigma");
             Destroy(bubble);
+
+            //audio
+            int randomIndex = Random.Range(0, bubbleSound.Length);
+            GetComponent<AudioSource>().clip = bubbleSound[randomIndex];
+            GetComponent<AudioSource>().Play();
         }
     }
 }

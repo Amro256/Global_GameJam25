@@ -2,14 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ToasterMovement : MonoBehaviour
 {
     //Variables
     private Rigidbody toasterRb; //Reference to the Rigidbody
+   
     private float maxForce = 500f;
-    private float LaunchPower;
-    private float powerMultiplier = 10f;
     private float HoldDownStartTime; // Private variable that will track how long the left mouse button is being held down
     private bool isLaunched = false;// Bool to check if the toaster has been launched
 
@@ -21,6 +21,12 @@ public class ToasterMovement : MonoBehaviour
     [SerializeField] float GravityForce = 9.81f; // Earth's gravity force
 
 
+    [Header("Slider Properties")]
+    [SerializeField] Slider powerBarUI; //Reference to slider UI
+    [SerializeField] Image sliderFillImage; //Refercne to the fill component of the slider
+    [SerializeField] Color startCol = Color.green;
+    [SerializeField] Color endCol = Color.red;
+
     [Header("Drag values")]
     [SerializeField] float dragIncreaseValue = 1.0f;
     [SerializeField] float maxDrag = 3.0f;
@@ -31,6 +37,13 @@ public class ToasterMovement : MonoBehaviour
         //Find the Rigidbody of the toaser object
         toasterRb = GetComponent<Rigidbody>();
         toasterRb.drag = 0; // Set's the drag to 0
+
+        //-----------------Slider-UI-----------------------//
+
+        powerBarUI.value = 0; //Set the intially value of the bar to 0 on start
+        powerBarUI.gameObject.SetActive(false);
+        sliderFillImage.color = startCol;
+
     }
 
     // Update is called once per frame
@@ -56,14 +69,28 @@ public class ToasterMovement : MonoBehaviour
         {
             HoldDownStartTime = Time.time; //Time in seconds since the start of the game (on how long the button has been held down)
             Debug.Log("Left click is being held down");
+            powerBarUI.gameObject.SetActive(true);
+        }
+
+        if(Input.GetMouseButton(0)) //If still holding down fill up the bar
+        {
+            float holdDownTime = Time.time - HoldDownStartTime;
+            float holdFactor = Mathf.Clamp01(holdDownTime / maxHoldDownTime);
+
+            powerBarUI.value = holdFactor;
+
+            sliderFillImage.color = Color.Lerp(startCol, endCol, holdFactor);
         }
 
         if(Input.GetMouseButtonUp(0)) //When the left mouse button is released
         {
             float holdDownTime = Time.time - HoldDownStartTime;
-            //Launch the toaster and set dragging to fale
             LaunchToaster(holdDownTime);
             Debug.Log("Button released");
+
+            powerBarUI.value = 0; //Rest the value after it has been launched!
+            powerBarUI.gameObject.SetActive(false);
+            sliderFillImage.color = startCol;
         } 
     }
 

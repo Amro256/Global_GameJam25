@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject gameWinPanel;
 
+    [SerializeField] GameObject CreditsPanel;
+    [SerializeField] GameObject MainMenuPanel;
+
     void Awake() 
     {
         if(insance == null)
@@ -59,5 +62,17 @@ public class GameManager : MonoBehaviour
         //Enable the game over panel here
         gameOverPanel.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void ShowCredits()
+    {   
+        CreditsPanel.SetActive(true);
+        MainMenuPanel.SetActive(false);
+    }
+
+    public void BackToMainMenu()
+    {
+        MainMenuPanel.SetActive(true);
+        CreditsPanel.SetActive(false);
     }
 }

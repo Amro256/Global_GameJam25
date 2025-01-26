@@ -8,24 +8,23 @@ public class ToasterMovement : MonoBehaviour
 {
     //Variables
     private Rigidbody toasterRb; //Reference to the Rigidbody
-   
     private float maxForce = 500f;
     private float HoldDownStartTime; // Private variable that will track how long the left mouse button is being held down
     private bool isLaunched = false;// Bool to check if the toaster has been launched
 
+    [Header("Toaster Properties")]
     [SerializeField] float minLaunchForce = 100f;
     [SerializeField] float maxLaunchForce = 5000f;
     [SerializeField] float maxHoldDownTime = 3f;
-
-    //[SerializeField] float launchForce = 20f; // Launch force can be adjusted in the inspector to find a good balance
     [SerializeField] float GravityForce = 9.81f; // Earth's gravity force
 
 
     [Header("Slider Properties")]
     [SerializeField] Slider powerBarUI; //Reference to slider UI
     [SerializeField] Image sliderFillImage; //Refercne to the fill component of the slider
-    [SerializeField] Color startCol = Color.green;
-    [SerializeField] Color endCol = Color.red;
+    [SerializeField] Color startColour = Color.green;
+    [SerializeField] Color endColour = Color.red;
+
 
     [Header("Drag values")]
     [SerializeField] float dragIncreaseValue = 1.0f;
@@ -42,14 +41,14 @@ public class ToasterMovement : MonoBehaviour
 
         powerBarUI.value = 0; //Set the intially value of the bar to 0 on start
         powerBarUI.gameObject.SetActive(false);
-        sliderFillImage.color = startCol;
+        sliderFillImage.color = startColour;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        MouseInput(); //Handles the mouse inputs
+        HandleForceInput(); //Handles the force input from the mouse left click
     }
 
     void FixedUpdate() 
@@ -61,7 +60,7 @@ public class ToasterMovement : MonoBehaviour
         }       
     }
 
-    void MouseInput() //This method will be used to handle the mouse dragging 
+    void HandleForceInput() //This method will be used to handle the mouse dragging 
     {
         if(isLaunched) return; // This will prevent multiple launching by skipping over the code if is launched = true
 
@@ -79,7 +78,7 @@ public class ToasterMovement : MonoBehaviour
 
             powerBarUI.value = holdFactor;
 
-            sliderFillImage.color = Color.Lerp(startCol, endCol, holdFactor);
+            sliderFillImage.color = Color.Lerp(startColour, endColour, holdFactor);
         }
 
         if(Input.GetMouseButtonUp(0)) //When the left mouse button is released
@@ -90,7 +89,7 @@ public class ToasterMovement : MonoBehaviour
 
             powerBarUI.value = 0; //Rest the value after it has been launched!
             powerBarUI.gameObject.SetActive(false);
-            sliderFillImage.color = startCol;
+            sliderFillImage.color = startColour;
         } 
     }
 
@@ -143,7 +142,7 @@ public class ToasterMovement : MonoBehaviour
             Debug.Log("Game over!");
         }
     }
-
+    
     //On trigger method here for the "Bath Tub" and enable the Win Screen! 
     void OnTriggerEnter(Collider other) 
     {

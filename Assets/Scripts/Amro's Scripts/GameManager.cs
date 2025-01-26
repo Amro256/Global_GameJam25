@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     {
         //Enable the game over panel here
         gameOverPanel.SetActive(true);
+
         Time.timeScale = 0;
     }
 
